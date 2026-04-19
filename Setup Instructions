@@ -1,0 +1,57 @@
+Setup Instructions
+
+Step 1
+Plug the Raspberry Pi Pico 2W into your PC while holding the BOOT button.
+
+Step 2
+Open PyCharm and create a new project using Python 3.11.
+
+Step 3
+Download MicroPython using PyCharm’s terminal:
+
+Invoke-WebRequest -Uri "https://micropython.org/resources/firmware/RPI_PICO2_W-20250415-v1.25.0.uf2" -OutFile pico_firmware.uf2
+
+Step 4
+Install mpremote using PyCharm’s terminal:
+
+pip install mpremote
+
+Step 5
+Check if the Pico is visible to your system:
+
+mpremote connect list
+
+If it is not detected, copy the firmware file to the Pico:
+
+copy pico_firmware.uf2 D:\
+
+(If the Pico is not shown as D:\, replace it with the correct drive letter.)
+
+Step 6
+Drag and drop all Python files into your project.
+
+Step 7
+Depending on your COM port (example: COM16), run:
+
+mpremote connect COM16 cp cc1101.py :cc1101.py
+mpremote connect COM16 cp scanner.py :scanner.py
+mpremote connect COM16 cp capture.py :capture.py
+mpremote connect COM16 cp sniffer.py :sniffer.py
+mpremote connect COM16 cp main.py :main.py
+
+Step 8
+Start the REPL:
+
+mpremote connect COM16 repl
+
+Step 9
+If you see:
+
+Connected to MicroPython at COM16
+Use Ctrl-] or Ctrl-x to exit this shell
+
+Type:
+
+import main
+
+to start the program.
