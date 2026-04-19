@@ -72,6 +72,7 @@ mpremote connect COM16 repl
 
 ### Step 9 — Run the program
 Once you see:
+
 Connected to MicroPython at COM16
 Use Ctrl-] or Ctrl-x to exit this shell
 Type:
