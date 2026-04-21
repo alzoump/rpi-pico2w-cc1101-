@@ -5,7 +5,7 @@ Spectrum Analyzer, Capture & Replay, Protocol Sniffer, and Radio Information Too
 ---
 
 ## 🔧 Hardware Required
-- Raspberry Pi Pico 2W
+- Raspberry Pi Pico 2W or simple pico 
 - CC1101 wireless transceiver module
 - Jumper wires
 - Optional: Use a better antenna, such as the UT-106UV Full Band 100 kHz–1 GHz wideband magnetic base antenna.
