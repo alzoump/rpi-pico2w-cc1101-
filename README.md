@@ -20,7 +20,7 @@ Spectrum Analyzer, Capture & Replay, Protocol Sniffer, and Radio Information Too
 | MISO       | GP16        |
 | SCK        | GP18        |
 | CSN        | GP17        |
-| GDO0       | GP20        |
+| GDO0       | GP22        |
 
 
 ## Setup Instructions
