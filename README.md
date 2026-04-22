@@ -67,6 +67,7 @@ mpremote connect COM16 cp main.py :main.py
 ```
 
 ### Step 8 — Start the REPL
+Likewise Replace `COM16` with your actual COM port, then run:
 ```powershell
 mpremote connect COM16 repl
 ```
