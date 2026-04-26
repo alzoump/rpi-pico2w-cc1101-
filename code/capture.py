@@ -29,6 +29,25 @@ class Capture:
         print("    Waiting for signal...")
 
         self.radio.set_freq_mhz(freq_mhz)
+
+        # Wait for signal activity first
+        print("    Waiting for activity (watching RSSI)...")
+        from cc1101 import MOD_ASK
+        self.radio.set_modulation(MOD_ASK)
+        self.radio.rx_mode()
+        deadline = __import__('time').ticks_add(__import__('time').ticks_ms(), timeout_ms)
+        import time
+        while True:
+            rssi = self.radio.get_rssi_dbm()
+            if rssi > -70:
+                print(f"    Signal detected! RSSI={rssi:+.1f} dBm — capturing...")
+                break
+            if time.ticks_diff(deadline, time.ticks_ms()) < 0:
+                print("    ✗ Timeout waiting for signal.")
+                self.radio.idle()
+                return None
+            time.sleep_ms(10)
+
         pulses, start_level = self.radio.capture_raw(
             timeout_ms=timeout_ms, max_edges=1024
         )
@@ -189,3 +208,4 @@ class Capture:
         if sig["pulses"]:
             print(f"     Min pulse: {min(sig['pulses'])} µs")
             print(f"     Max pulse: {max(sig['pulses'])} µs")
+
