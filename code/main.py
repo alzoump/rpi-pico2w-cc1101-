@@ -83,6 +83,7 @@ def menu_capture(capture):
         print("  6. Save library to flash")
         print("  7. Load library from flash")
         print("  8. Delete signal")
+        print("  9. Save to PC")
         print("  0. Back")
         choice = input("\n  > ").strip()
 
@@ -121,6 +122,17 @@ def menu_capture(capture):
             capture.list_signals()
             name = input("  Signal name to delete: ").strip()
             capture.delete(name)
+
+        elif choice == "9":
+            capture.save_to_file()
+            print("\n  ── To copy to your PC ──")
+            print("  1. Press Ctrl+X to exit REPL")
+            print("  2. Run this in PowerShell:")
+            print("     mpremote connect COM3 cp :signals.json signals.json")
+            print("  3. File will appear in your PyCharm project folder.")
+            print("  To restore later:")
+            print("     mpremote connect COM3 cp signals.json :signals.json")
+            input("\n  Press Enter to continue...")
 
         elif choice == "0":
             break
