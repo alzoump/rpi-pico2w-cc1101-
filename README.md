@@ -22,6 +22,18 @@ Spectrum Analyzer, Capture & Replay, Protocol Sniffer, and Radio Information Too
 | CSN        | GP17        |
 | GDO0       | GP22        |
 
+## Hardware Tips
+
+### Power Supply Decoupling (Recommended)
+Add two capacitors between CC1101 VCC and GND for stable readings and transmits:
+
+| Capacitor | Value | Type |
+|---|---|---|
+| C1 | 10µF | Electrolytic |
+| C2 | 100nF | Polyester or Ceramic |
+
+Place both as close to the CC1101 VCC/GND pins as possible.
+Without these, you may get stuck RSSI readings (-74.0 dBm) or corrupted SPI.
 
 ## Setup Instructions
 
