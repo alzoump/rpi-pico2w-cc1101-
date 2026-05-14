@@ -96,3 +96,6 @@ Type:
 import main
 ```
 to start the program.
+
+<img width="1668" height="3683" alt="20260514_174518" src="https://github.com/user-attachments/assets/5db1ea9f-c3fd-41b5-8f6a-dab993f8d6e5" />
+
